@@ -43,40 +43,78 @@
     <!-- SLIDES -->
     <slide class="class" id="id" style="background:;">
   <hgroup>
-    <h2>Slide 2</h2>
+    <h2>Horse racing prediction</h2>
   </hgroup>
   <article data-timings="">
-    
+    <p>I would like to take this opportunity to demonstrate, using Slidify, one simple model for making race predictions, which is an area rich in data!</p>
+
+<h2>The method used</h2>
+
+<p>Successful horse racing gamblers are able to &#39;read the form&#39; of diferent horses and make predictions on how they will run against each another.</p>
+
+<p>I have taken a more automated approach that uses a simple linear regression fitted to a data set of all 2013 Australian horse racing events.</p>
+
+<p>It makes a prediction of how long it will take each horse to run a future race using its last race performance and the characteristics of the future race . Comparing the times of all horses in the race allows their finishing position to be predicted!</p>
+
   </article>
   <!-- Presenter Notes -->
 </slide>
 
 <slide class="class" id="id" style="background:;">
   <hgroup>
-    <h2>Slide 3</h2>
+    <h2>The model&#39;s input variables</h2>
   </hgroup>
   <article data-timings="">
-    
+    <p>The input variables used in the linear regression model are as follows:</p>
+
+<ul>
+<li>Race distance - of course the farther the race the longer it takes to run.</li>
+<li>The Going - how hard (faster) or soft (slower) a track is.</li>
+<li>Weight - each horse carries a jockey and often an additional weight handicap</li>
+</ul>
+
+<p>This is the general form of the R code for fitting the model and then predicting a horse&#39;s finish time:</p>
+
+<pre><code class="r">prediction_model &lt;- lm(finish_time ~ distance + weight + going, data = aust_races_2013)
+
+predicted_time &lt;- (prediction_model, data = horses_last_race)
+</code></pre>
+
+<p>The outcome of this is not shown.</p>
+
   </article>
   <!-- Presenter Notes -->
 </slide>
 
 <slide class="class" id="id" style="background:;">
   <hgroup>
-    <h2>Slide 4</h2>
+    <h2>The effect of distance on average winning times</h2>
   </hgroup>
   <article data-timings="">
-    
+    <pre><code class="r">dist &lt;- seq(1000, 2000, by=100)
+time &lt;- 0.070*dist
+plot(dist, time, main=&quot;Average winning race times by distance&quot;, 
+     xlab=&quot;Race Distance (m)&quot;, ylab=&quot;Time (s)&quot;, pch=19)
+abline(lm(time~dist), col=&quot;red&quot;)
+</code></pre>
+
+<p><img src="assets/fig/unnamed-chunk-2.png" alt="plot of chunk unnamed-chunk-2"> </p>
+
   </article>
   <!-- Presenter Notes -->
 </slide>
 
 <slide class="class" id="id" style="background:;">
   <hgroup>
-    <h2>Slide 5</h2>
+    <h2>The web app</h2>
   </hgroup>
   <article data-timings="">
-    
+    <p>I have created a web app based on the described model which can be viewed here: <a href="https://ianmccarthy.shinyapps.io/HorseRace/">https://ianmccarthy.shinyapps.io/HorseRace/</a> (it may be necessary to zoom out to see all the input boxes).</p>
+
+<p>The web app can make predictions for up to 5 horses, the race prediction changes as data is changed.</p>
+
+<p>Thank you.</p>
+
   </article>
   <!-- Presenter Notes -->
 </slide>
@@ -87,25 +125,25 @@
     <ul>
       <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=1 title='Slide 2'>
+        data-slide=1 title='Horse racing prediction'>
          1
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=2 title='Slide 3'>
+        data-slide=2 title='The model&#39;s input variables'>
          2
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=3 title='Slide 4'>
+        data-slide=3 title='The effect of distance on average winning times'>
          3
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=4 title='Slide 5'>
+        data-slide=4 title='The web app'>
          4
       </a>
     </li>
