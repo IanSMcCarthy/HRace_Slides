@@ -21,7 +21,7 @@ Successful horse racing betters are able to 'read the form' of diferent horses a
 
 I have taken a more automated approach that uses a simple linear regression fitted to a data set of all 2013 Australian horse racing events.
 
-It makes a prediction of how long it will take each horse to run a future race using its last race performance and the characteristics of the future race . Comparing the times of all horses in the race allows their finishing position to be predicted!
+It makes a prediction of how long it will take each horse to run a future race using its last race performance and the characteristics of the future race . Comparing the times of all horses in the race allows their finishing position to be predicted.
 
 
 --- .class #id 
