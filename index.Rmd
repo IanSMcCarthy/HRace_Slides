@@ -17,7 +17,7 @@ I would like to take this opportunity to demonstrate, using Slidify, one simple 
  
 ## The method used
 
-Successful horse racing gamblers are able to 'read the form' of diferent horses and make predictions on how they will run against each another.
+Successful horse racing betters are able to 'read the form' of diferent horses and make predictions on how they will run against each another.
 
 I have taken a more automated approach that uses a simple linear regression fitted to a data set of all 2013 Australian horse racing events.
 
@@ -27,7 +27,7 @@ It makes a prediction of how long it will take each horse to run a future race u
 --- .class #id 
 ## The model's input variables
 
-The input variables used in the linear regression model are as follows:
+The input variables (delta of last race and future race) used in the linear regression model are as follows:
 
 - Race distance - of course the farther the race the longer it takes to run.
 - The Going - how hard (faster) or soft (slower) a track is.
@@ -63,4 +63,5 @@ I have created a web app based on the described model which can be viewed here: 
 
 The web app can make predictions for up to 5 horses, the race prediction changes as data is changed.
 
+I hope you enjoy the app.
 Thank you.
