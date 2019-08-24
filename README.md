@@ -1,28 +1,26 @@
 # HRace_Slides
 
-title : Race Horse Prediction subtitle : Using linear regression to predict horse race outcomes author : Ian McCarthy job : SAP Consultant framework : io2012 # {io2012, html5slides, shower, dzslides, ...} highlighter : highlight.js # {highlight.js, prettify, highlight} hitheme : tomorrow # widgets : [] # {mathjax, quiz, bootstrap} mode : selfcontained # {standalone, draft} knit : slidify::knit2slides ---.class #id
+title : Race Horse Prediction subtitle : Using linear regression to predict horse race outcomes author : Ian McCarthy  framework : io2012 # {io2012, html5slides, shower, dzslides, ...} highlighter : highlight.js # {highlight.js, prettify, highlight} hitheme : tomorrow # widgets : [] # {mathjax, quiz, bootstrap} mode : selfcontained # {standalone, draft} knit : slidify::knit2slides ---.class #id
 
-Horse racing prediction
+Horse Racing Prediction Model
 
-I would like to take this opportunity to demonstrate, using Slidify, one simple model for making race predictions, which is an area rich in data!
+This is a simple model built using R and Slidify for predicting horse race outcomes using general regression.
 
 The method used
 
-Successful horse racing betters are able to 'read the form' of diferent horses and make predictions on how they will run against each another.
+Successful horse racing betters are able to 'read the form' of diferent horses and make predictions on how they will run against each another. In this application I have used a general linear regression model fitted to a data set of Australian horse racing events during 2013.
 
-I have taken a more automated approach that uses a simple linear regression fitted to a data set of all 2013 Australian horse racing events.
-
-It makes a prediction of how long it will take each horse to run a future race using its last race performance and the characteristics of the future race . Comparing the times of all horses in the race allows their finishing position to be predicted.
+The model predicts how long it will take each horse to run a future race using the horse's last race performance and characteristics of the future race . The predicted times for each horse to complete the race enables a ranking of their finishing place to be predicted.
 
 --- .class #id
 
 The model's input variables
 
-The input variables (delta of last race and future race) used in the linear regression model are as follows:
+The input variables (delta of last race and future race) used in the regression model are as follows:
 
-Race distance - of course the farther the race the longer it takes to run.
+Race distance - the farther the race the longer it takes to finish.
 The Going - how hard (faster) or soft (slower) a track is.
-Weight - each horse carries a jockey and often an additional weight handicap
+Weight - each horse carries a jockey and often a weight handicap
 This is the general form of the R code for fitting the model and then predicting a horse's finish time:
 
 prediction_model <- lm(finish_time ~ distance + weight + going, data = aust_races_2013)
@@ -43,8 +41,6 @@ abline(lm(time~dist), col="red")
 
 The web app
 
-I have created a web app based on the described model which can be viewed here: https://ianmccarthy.shinyapps.io/HorseRace/ (it may be necessary to zoom out to see all the input boxes).
+I have created an online shinyapps model that can be viewed here: https://ianmccarthy.shinyapps.io/HorseRace/
 
-The web app can make predictions for up to 5 horses, the race prediction changes as data is changed.
-
-I hope you enjoy the app. Thank you.
+The web app can make predictions for up to 5 horses, the race outcomes change as the data is changed.
